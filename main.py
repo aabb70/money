@@ -77,6 +77,8 @@ def handle_message(event):
     else: # 輸入其他文字則回傳Tip
         line_reply(event, "輸入錯誤!!\n%s"%msg_tip)
             
+import os
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
 
