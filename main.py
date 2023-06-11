@@ -44,13 +44,16 @@ def createReplyMessge(query_cur):
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
-def callback(request):
+def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
     # get request body as text
     body = request.get_data(as_text=True)
-    print(body)
+    app.logger.info("Request body: " + body)
     # handle webhook body
+
+    print(body)
+
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
@@ -77,8 +80,6 @@ def handle_message(event):
     else: # 輸入其他文字則回傳Tip
         line_reply(event, "輸入錯誤!!\n%s"%msg_tip)
             
-import os
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0')
 
