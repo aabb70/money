@@ -6,16 +6,7 @@ from linebot.models import *
 
 app = Flask(__name__)
 
-msg_tip = """
-歡迎使用 Line 匯率查詢機器人
----------------------------------
-使用教學：
-1.查詢 幣別 > 回傳該幣別匯率
-2.清單      > 回傳幣別清單
----------------------------------
-例：查詢 美金
-即回傳新台幣兌換美金匯率
-"""
+msg_tip = "123"
 
 # Line Bot驗證
 line_bot_api = LineBotApi("Eqzcj6SDxRTFSDv7l8ceI09j830Pg2571ePo7ZLcLszblj9b6Mqa8lA0YsLsHi+nQRIUjnqCkIqrejnIWVpQfuhGn5w3a4Aa3PKxFR5WsRtjo3XemuHy9hBKpUXDuivKAQs2J+ZtKnjdZNBV3KcLVgdB04t89/1O/w1cDnyilFU=")    
